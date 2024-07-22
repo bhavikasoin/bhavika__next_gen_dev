@@ -1,0 +1,45 @@
+                   // Student grade calculator
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // total subjects are 5
+        System.out.println("Please enter your marks in English out of 100");
+        float English = sc.nextFloat();
+        System.out.println("Please enter your marks in Hindi out of 100");
+        float Hindi = sc.nextFloat();
+        System.out.println("Please enter your marks in Maths out of 100");
+        float Maths = sc.nextFloat();
+        System.out.println("Please enter your marks in Science out of 100");
+        float Science = sc.nextFloat();
+        System.out.println("Please enter your marks in Computer out of 100");
+        float Computer = sc.nextFloat();
+        // CALCULATING TOTAL MARKS
+        float totalmarks = (English+Hindi+Maths+Science+Computer);
+        System.out.println("Your total marks out of 500 are : "+ totalmarks);
+        // CALCULATING PERCENTAGE
+        float  avg_percentage= ((English+Hindi+Maths+Science+Computer)/500*100);
+        System.out.println("Your percentage is : " + avg_percentage);
+
+        // DETERMINE GRADE BASED ON STUDENT'S AVERAGE PERCENTAGE
+        char grade;
+        if(avg_percentage>= 90) {
+            System.out.println("Congratulations! You have got grade A");
+        }
+            else if(avg_percentage>=80){
+                System.out.println("Congratulations! You have got grade B");
+            }
+        else if(avg_percentage>=70) {
+            System.out.println("Need for a little improvement .You have got grade C");
+        }
+        else if(avg_percentage>=60) {
+            System.out.println("Need of improvement .You have got grade D");
+        }
+        else if(avg_percentage>=50) {
+            System.out.println("Need to do a lot of hardwork.You have got grade E");
+        }
+        else{
+            System.out.println("Sorry you are not promoted ");
+        }
+    }
+}

@@ -1,0 +1,52 @@
+                   // NUMBER GAME
+import java.util.Random;
+import java.util.Scanner; //Scanner class for storing the input read from the keyboard
+
+ class Main {
+    public static void task_1Main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // creating an object scanner for reading input from keyboard
+        Random random = new Random(); // creating an object random for storing all the random numbers generated in the game
+
+        System.out.println("Welcome to the Number Guessing Game!");
+
+        int score = 0; // initializing with the score as 0 in the beginning of the game
+        boolean playAgain = true; // initializing boolean condition true
+
+        // loop will not terminate till the above condition is fulfilled
+        while (playAgain) {
+            int targetNumber = random.nextInt(100) + 1;// Generating random numbers from 1 to 100
+            int attempts = 0; // initializing with 0 attempts
+            int maxAttempts = 5; // maximum attempts given to the player is set as 5
+            System.out.println("I have selected a number between 1 and 100. Can you guess it?");
+
+            // this loop will run till attempts are less than max attempts
+            while (attempts < maxAttempts) {
+                System.out.print("Enter your guess: ");
+                int userGuess = scanner.nextInt(); // reading an integer value from keyboard
+                scanner.nextLine();
+                attempts++; // incrementing the attempts count
+
+                if (userGuess == targetNumber) { //Check if player's guess is correct
+                    System.out.println("Congratulations! You guessed the number " + targetNumber + " in " + attempts + " attempts.");
+                    score++; // if correct print this
+                    break; // terminate the program and come out of inner loop
+                } else if (userGuess < targetNumber) {
+                    System.out.println("Too low! Try again."); // if generated number is too high or too low as comparison to the guess number print the following
+                } else {
+                    System.out.println("Too high! Try again.");
+                }
+            }
+
+            if (attempts >= maxAttempts) {
+                System.out.println("Sorry, you've run out of attempts. The correct number was " + targetNumber + ".");
+            }
+
+            //Asking the user to play again
+            System.out.print("Do you want to play again? (yes/no): ");
+            String playAgainInput = scanner.nextLine();//Read the user's input
+            playAgain = playAgainInput.equalsIgnoreCase("yes"); // setting flag if the input is yes control will go above to playAgain
+        }
+
+        System.out.println("Game over! Your score: " + score); // Prints the final score
+    }
+}
